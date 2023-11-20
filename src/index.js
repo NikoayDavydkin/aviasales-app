@@ -1,17 +1,31 @@
+/* eslint-disable indent */
+/* eslint-disable no-unused-vars */
+/* eslint-disable semi */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
+import { createStore, compose, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { reducer } from './reducer';
+
+const composeEnchancers =
+  typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+    : compose;
+
+const loggerMidleware = (store) => (next) => (action) => {
+  const result = next(action);
+  return result;
+};
+
+const store = createStore(reducer, composeEnchancers(applyMiddleware(loggerMidleware)));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);

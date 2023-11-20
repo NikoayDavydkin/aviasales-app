@@ -1,0 +1,57 @@
+.tickets-selection {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  border-radius: 5px;
+
+  & li {
+    width: 33.3%;
+    height: 100%;
+  }
+
+  & button {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: #4a4a4a;
+    font-size: 12px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+  }
+
+  @media (max-width: 400px) {
+    & button {
+      font-size: 9px;
+    }
+  }
+
+  & .tickets-selection-button-one {
+    border-radius: 5px 0px 0px 5px;
+    border-top: 1px solid #dfe5ec;
+    border-bottom: 1px solid #dfe5ec;
+    border-left: 1px solid #dfe5ec;
+  }
+
+  & .tickets-selection-button-two {
+    border: 1px solid #dfe5ec;
+  }
+
+  & .tickets-selection-button-three {
+    border-radius: 0px 5px 5px 0px;
+    border-top: 1px solid #dfe5ec;
+    border-bottom: 1px solid #dfe5ec;
+    border-right: 1px solid #dfe5ec;
+  }
+
+  & .button-active {
+    background-color: #2196f3;
+    color: white;
+  }
+}

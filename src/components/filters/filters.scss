@@ -1,0 +1,42 @@
+.hide {
+  display: flex;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.hide-mobile {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .hide-mobile {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .hide {
+    display: none;
+  }
+}
+
+.filters {
+  width: 232px;
+  height: 252px;
+  background-color: white;
+  list-style-type: none;
+  flex-direction: column;
+  border-radius: 5px;
+
+  li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+  }
+
+  &__name {
+    height: 52px;
+    color: #4a4a4a;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
