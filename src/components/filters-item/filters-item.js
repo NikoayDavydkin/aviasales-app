@@ -12,15 +12,15 @@ const FiltersItem = ({ value, index, setFilterSelector, filterSelector }) => {
   };
 
   return (
-    <li
+    <label
       onClick={() => {
         onFilter();
       }}
-      className="filters__item"
     >
-      <input checked={filterSelector[index - 1]} readOnly={true} type="checkbox" className="custom-checkbox" />
-      <label>{value}</label>
-    </li>
+      <input checked={filterSelector[index - 1]} readOnly={true} type="checkbox" className="checkbox__input" />
+      <span className="checkbox__custom"></span>
+      {value}
+    </label>
   );
 };
 

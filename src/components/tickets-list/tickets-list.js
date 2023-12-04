@@ -1,7 +1,6 @@
 /* eslint-disable semi */
 import React from 'react';
 import './tickets-list.scss';
-import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
 
 import TicketsItem from '../tickets-item/tickets-item';
@@ -11,7 +10,7 @@ const TicketsList = ({ sortTickets }) => {
     <ul className="content__tickets-list tickets-list">
       {sortTickets.map((item) => {
         return (
-          <li key={uuidv4()}>
+          <li key={item.id}>
             {' '}
             <TicketsItem ticket={item} />{' '}
           </li>

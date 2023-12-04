@@ -7,47 +7,45 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../../actions';
 
 const TicketsSelection = ({ setButtonsSelector, buttonsSelector }) => {
-  const returnClass = (value) => {
-    if (buttonsSelector === value) {
-      return 'button-active';
-    }
-
-    return '';
+  const returnRadio = (value) => {
+    return buttonsSelector === value;
   };
-
   return (
-    <ul className="content__tickets-selection tickets-selection">
-      <li>
-        <button
+    <div className="but-selection">
+      <label>
+        <input checked={returnRadio('cheap')} name="sort" type="radio" className="tickets-selection__hide" />
+        <div
           onClick={() => {
             setButtonsSelector('cheap');
           }}
-          className={`tickets-selection-button-one ${returnClass('cheap')}`}
+          className="tickets-selection__custom radio-one"
         >
           САМЫЙ ДЕШЕВЫЙ
-        </button>
-      </li>
-      <li>
-        <button
+        </div>
+      </label>
+      <label>
+        <input checked={returnRadio('speed')} name="sort" type="radio" className="tickets-selection__hide" />
+        <div
           onClick={() => {
             setButtonsSelector('speed');
           }}
-          className={`tickets-selection-button-one ${returnClass('speed')}`}
+          className="tickets-selection__custom radio-two"
         >
           САМЫЙ БЫСТРЫЙ
-        </button>
-      </li>
-      <li>
-        <button
+        </div>
+      </label>
+      <label>
+        <input checked={returnRadio('optimal')} name="sort" type="radio" className="tickets-selection__hide" />
+        <div
           onClick={() => {
             setButtonsSelector('optimal');
           }}
-          className={`tickets-selection-button-one ${returnClass('optimal')}`}
+          className="tickets-selection__custom radio-three"
         >
           ОПТИМАЛЬНЫЙ
-        </button>
-      </li>
-    </ul>
+        </div>
+      </label>
+    </div>
   );
 };
 

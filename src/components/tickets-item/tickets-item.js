@@ -1,7 +1,6 @@
 /* eslint-disable semi */
 import React from 'react';
 import './tickets-item.scss';
-import { v4 as uuidv4 } from 'uuid';
 
 import TicketsItemTr from '../tickets-item-tr/tickets-item-tr';
 
@@ -30,7 +29,7 @@ const TicketsItem = ({ ticket }) => {
       </header>
 
       {ticket.segments.map((item) => {
-        return <TicketsItemTr key={uuidv4()} segments={item} />;
+        return <TicketsItemTr key={ticket.segments.indexOf(item)} segments={item} />;
       })}
     </div>
   );

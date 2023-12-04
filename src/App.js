@@ -4,6 +4,7 @@
 import React, { useEffect, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { v4 as uuidv4 } from 'uuid';
 
 import logo from './img/LogoAvia.png';
 import Filters from './components/filters/filters';
@@ -34,7 +35,7 @@ function App({
 
   useEffect(() => {
     if (stop === true) {
-      setSortTickets(allSorted(allFilters(tickets)).slice(0, ticketsLength));
+      setSortTickets(allSorted(allFilters(assignId(tickets))).slice(0, ticketsLength));
       setIsLoading(false);
     }
   }, [stop, tickets, buttonsSelector, filterSelector, ticketsLength]);
@@ -67,6 +68,15 @@ function App({
     },
     [filterSelector]
   );
+
+  //function для присвоения id
+
+  const assignId = (tickets) => {
+    return [...tickets].map((el) => {
+      el['id'] = uuidv4();
+      return el;
+    });
+  };
 
   //function для сортировки
 
