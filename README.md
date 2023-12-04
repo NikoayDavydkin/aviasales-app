@@ -1,1 +1,1 @@
-avia-app-plum.vercel.app
+https://avia-app-plum.vercel.app/
